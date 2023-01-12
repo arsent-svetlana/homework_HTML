@@ -1,0 +1,408 @@
+:root {
+  --main-color: #ffffff;
+  --main-text-color: #000000;
+  --link-color: rgba(0, 0, 0, 0.45);
+  --accent-background-color: rgba(0, 0, 0, 0.05);
+
+  --main-font-family: "Roboto", sans-serif;
+  --second-font-family: "Space Mono", monospace;
+
+  --timing-duration: 350ms;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* constants  */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font-family);
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1350px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.activ {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.activ::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  left: 0;
+  bottom: -1px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* navigation  */
+
+.navigation {
+  display: flex;
+  color: var(--link-color);
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  color: var(--link-color);
+}
+
+.nav-item .link {
+  display: block;
+
+  transition: color var(--timing-duration) var(--cubic);
+}
+
+.nav-link:hover {
+  color: var(--main-text-color);
+}
+
+.navigation .link:focus,
+.link-main:focus,
+.button-examples:focus,
+.link-examples:focus,
+.last-button:focus {
+  background: var(--main-text-color);
+  outline: 6px solid var(--main-text-color);
+  color: white;
+}
+
+.nav-button {
+  background-color: var(--main-text-color);
+  color: var(--main-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.navigation .link {
+  padding: 10px 15px;
+}
+
+/* !! -- main -- !!*/
+
+/*  main-nav-header */
+
+.flex-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-section {
+  margin-top: 60px;
+  margin-bottom: 25px;
+}
+
+.hidden-avtor {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: inherit;
+
+  margin-bottom: 20px;
+}
+
+.text-avtor,
+.span {
+  color: var(--link-color);
+}
+
+.link-main {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-background-color);
+  text-decoration-thickness: 0.01px;
+  text-underline-offset: 0.2em;
+
+  transition: text-decoration-thickness var(--timing-duration) var(--cubic);
+}
+
+.link-main:hover {
+  text-decoration-thickness: 2px;
+}
+
+.nav-span {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: 17px;
+}
+
+.flex-button {
+  padding: 2px 10px;
+  border-radius: 20px;
+  background-color: var(--accent-background-color);
+
+  margin-right: 15px;
+}
+
+.circle {
+  padding-top: 6px;
+}
+
+.button-list {
+  display: flex;
+}
+
+.button-list-item,
+.activ-button-item {
+  font-size: 15px;
+  letter-spacing: 0.05em;
+
+  border-radius: 30px;
+  padding: 8px 12px;
+
+  border: 1px solid var(--link-color);
+
+  transition: background-color var(--timing-duration) var(--cubic),
+    border var(--timing-duration) var(--cubic),
+    color var(--timing-duration) var(--cubic);
+}
+
+.button-list-item:hover {
+  background-color: var(--link-color);
+  border: 1px solid transparent;
+  color: var(--main-color);
+}
+
+.button-list-item:focus {
+  background-color: var(--main-text-color);
+  color: var(--main-color);
+}
+
+.button-list-item {
+  margin-left: 15px;
+}
+
+.activ-button-item {
+  border: 1px solid var(--accent-background-color);
+}
+
+.icon {
+  padding-right: 5px;
+}
+
+.main-nav-list {
+  display: flex;
+  margin-top: 50px;
+
+  border-bottom: 1px solid var(--accent-background-color);
+}
+
+.main-nav-list .main-nav-item:not(:last-child) {
+  margin-right: 60px;
+}
+
+
+.main-nav-link:focus {
+  outline: var(--main-color);
+}
+
+.main-nav-item {
+  padding: 12px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: inherit;
+  line-height: 1.7;
+}
+
+
+/*  -- examples --  */
+
+.examples-header {
+  margin-bottom: 20px;
+}
+
+.first-block {
+  margin-right: 25px;
+}
+
+.example-item:nth-child(2n + 1) {
+  margin-bottom: 8px;
+}
+
+.example-item:nth-child(2n) {
+  display: block;
+  padding: 7px;
+
+  background-color: var(--accent-background-color);
+  border-radius: 5px;
+
+  font-family: var(--second-font-family);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.example-item-input {
+  margin-bottom: 4px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.button-examples {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+
+  padding: 12px;
+
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
+}
+
+.video-examples {
+  margin-bottom: 13px;
+}
+
+.small-button-examples {
+  margin-top: 40px;
+  font-size: 12px;
+}
+
+.small-button-examples:hover {
+  text-decoration: underline;
+}
+
+.examples-container {
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--accent-background-color);
+  margin-bottom: 25px;
+}
+
+.text-examples {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.link-examples {
+  color: inherit;
+  cursor: pointer;
+}
+
+.last-section {
+  font-size: 15px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 160px;
+  border-bottom: 2px solid var(--accent-background-color);
+}
+
+.last-text {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.last-button {
+  display: inline-block;
+  background-color: var(--main-text-color);
+  color: var(--main-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: color var(--timing-duration) var(--cubic),
+    background-color var(--timing-duration) var(--cubic);
+}
+
+.last-button:hover {
+  background-color: var(--accent-background-color);
+  color: var(--main-text-color);
+}
+
+.progress {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/*  !!-- footer --!! */
+
+.footer {
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.nav-footer-list .nav-footer-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.nav-footer-item {
+  font-size: 15px;
+}
